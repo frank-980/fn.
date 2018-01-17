@@ -1,0 +1,62 @@
+<meta charset="utf-8">
+<style>
+	.red{display:inline-block;height:15px;width:15px;background:red;content:''}
+	.blue{display:inline-block;height:15px;width:15px;background:blue;content:''}
+	.green{display:inline-block;height:15px;width:15px;background:green;content:''}
+</style>
+<div class="wrap">
+
+</div>	<h2>Addcontent</h2>
+内容<input type="text" class="input_content" value=""></br>
+次数<input type="text" class="input_count" value="">
+<button class="btn">add</button>
+<div class="color">
+	<h2>Changecolor</h2>
+	<a class="red"></a>
+	<a class="blue"></a>
+	<a class="green"></a>
+	
+</div>
+<script src="http://code.jquery.com/jquery-latest.js"></script>
+<script src="changecolor.js"></script>
+<script>
+	$('.btn').click(function(){
+		var col = $('.input_content').val();
+		var coun = $('.input_count').val();
+		$('.wrap').addnode({
+						html:col,
+						node:"p",
+						count:coun,
+					})
+	})
+	
+	$('.color').click(function(ev){
+		var ev = ev || window.event;
+		var target = ev.target || ev.srcElement;
+		if(target.nodeName.toLowerCase() == "a")
+			
+			switch(target.className){
+				case 'red' :
+					
+					$('.wrap').changecolor({
+						color:'red',
+					})
+				;break;
+				case 'blue' :
+					
+					$('.wrap').changecolor({
+						color:'blue',
+					})
+				;break;
+				case 'green' :
+					
+					$('.wrap').changecolor({
+						color:'green', 
+					})
+				;break;
+			}
+			
+	})
+	
+</script>
+
